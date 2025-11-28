@@ -1,0 +1,251 @@
+/* --- CONTENEDOR PRINCIPAL --- */
+.juegomemoria-wrapper {
+  width: 100%;
+  /* Altura ajustada para tu web */
+  height: calc(100vh - 80px); 
+  min-height: 550px;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* --- TU FONDO LOCAL --- */
+  background-image: url("/images/MemoriaFondo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #fffde7; /* Color de respaldo por si acaso */
+}
+
+/* --- TARJETA GENÉRICA --- */
+.juegomemoria-card, .juegomemoria-cardNivel, .juegomemoria-pantallaInicio {
+  width: 100%;
+  max-width: 1000px;
+  height: 100%;
+  
+  /* Fondo blanco semi-transparente para que se lea bien sobre tu imagen */
+  background-color: rgba(251, 210, 255, 0.596); 
+  border-radius: 25px;
+  padding: 15px;
+  box-sizing: border-box;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; 
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  backdrop-filter: blur(5px); /* Efecto vidrio elegante */
+}
+
+.juegomemoria-cardNivel {
+  background-image: url("/images/transparent-Photoroom (11).png");
+  background-color: rgba(255, 255, 255, 0.92);
+  background-blend-mode: overlay;
+  background-size: cover;
+  background-position: center;
+  justify-content: flex-start;
+}
+
+.juegomemoria-pantallaInicio {
+  background-image: url("/images/Gemini_Generated_Image_g3pnqgg3pnqgg3pn.png");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-shadow: 0 3px 6px rgba(0,0,0,0.8);
+  justify-content: center;
+}
+
+/* --- BARRA SUPERIOR --- */
+.juegomemoria-infoBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background: #f3e5f5;
+  border-radius: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  height: 60px;
+  flex-shrink: 0; 
+  margin-bottom: 10px;
+}
+
+.juegomemoria-menuTitle { font-size: 1.5rem; color: #e91e63; font-weight: 900; margin: 0; }
+.juegomemoria-stats { display: flex; gap: 15px; font-weight: bold; font-size: 1.2rem; color: #ad1457; }
+
+/* --- PREMIOS --- */
+.juegomemoria-premios {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 60px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 12px;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  flex-shrink: 0;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.juegomemoria-premios::-webkit-scrollbar { display: none; }
+
+.juegomemoria-texto-premios { color: #888; padding: 5px; font-weight: bold; }
+
+.juegomemoria-emoji { font-size: 2rem; filter: grayscale(1); opacity: 0.5; flex-shrink: 0; transition: transform 0.3s;}
+.juegomemoria-emoji.activo { filter: none; opacity: 1; transform: scale(1.2); } 
+
+/* --- GRID DE CARTAS --- */
+.juegomemoria-cartasGrid {
+  display: grid;
+  gap: 15px;
+  width: 100%;
+  flex: 1; 
+  align-content: center; 
+  justify-content: center;
+  padding: 5px;
+  box-sizing: border-box;
+  overflow: auto; 
+}
+
+/* TAMAÑOS PC */
+.juegomemoria-grid-muy-facil { grid-template-columns: repeat(3, 1fr); }
+.juegomemoria-grid-muy-facil .juegomemoria-carta { width: 140px; height: 140px; }
+
+.juegomemoria-grid-facil { grid-template-columns: repeat(5, 1fr); }
+.juegomemoria-grid-facil .juegomemoria-carta { width: 120px; height: 120px; }
+
+.juegomemoria-grid-medio-bajo { grid-template-columns: repeat(4, 1fr); }
+.juegomemoria-grid-medio-bajo .juegomemoria-carta { width: 115px; height: 115px; }
+
+.juegomemoria-grid-medio { grid-template-columns: repeat(5, 1fr); }
+.juegomemoria-grid-medio .juegomemoria-carta { width: 100px; height: 100px; }
+
+.juegomemoria-grid-medio-alto { grid-template-columns: repeat(4, 1fr); }
+.juegomemoria-grid-medio-alto .juegomemoria-carta { width: 95px; height: 95px; font-size: 1.8rem; }
+
+.juegomemoria-grid-dificil { grid-template-columns: repeat(6, 1fr); }
+.juegomemoria-grid-dificil .juegomemoria-carta { width: 85px; height: 85px; font-size: 1.5rem; }
+
+/* --- CARTA --- */
+.juegomemoria-carta {
+  background: #8e24aa;
+  color: #fff;
+  border: 3px solid #7b1fa2;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem; 
+  font-weight: 900;
+  cursor: pointer;
+  user-select: none;
+  aspect-ratio: 1 / 1; 
+  width: 100%;
+  max-width: 100px; 
+  max-height: 100px; 
+  transition: transform 0.1s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+  margin: 0 auto;
+}
+
+.juegomemoria-carta:hover { transform: scale(1.05); }
+
+/* CLASES MODIFICADORAS DE CARTA SINCRONIZADAS CON EL JSX */
+.juegomemoria-carta.juegomemoria-carta-volteada { 
+  background: #fff; 
+  color: #222; 
+  border-color: #ff4081; 
+  transform: rotateY(180deg); 
+}
+.juegomemoria-carta.juegomemoria-carta-acertada { 
+  border-color: #4caf50; 
+  background-color: #e8f5e9; 
+  opacity: 0.8; 
+}
+
+
+/* --- MENÚ DE NIVELES --- */
+.juegomemoria-nivelesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  width: 100%;
+  padding: 10px;
+  overflow-y: auto;
+  align-content: center;
+  height: 100%;
+}
+
+/* --- BOTONES --- */
+.juegomemoria-btn {
+  width: 100%;
+  height: 55px;
+  font-weight: 700;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s;
+}
+.juegomemoria-btn:active { transform: scale(0.95); }
+.juegomemoria-btn-primary { background: #9c27b0; color: #fff; box-shadow: 0 3px 0 #7b1fa2; }
+.juegomemoria-btn-success { background: #4caf50; color: #fff; box-shadow: 0 3px 0 #388e3c; }
+.juegomemoria-btn-back { background: #eceff1; color: #455a64; width: auto; padding: 0 20px; height: 40px; }
+
+.juegomemoria-botonInicio {
+  padding: 15px 50px;
+  font-size: 1.8rem;
+  background: #e91e63;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  margin-top: 20px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4);
+  font-weight: bold;
+}
+
+.juegomemoria-boton-Musica {
+  background: white;
+  border: 2px solid #e91e63;
+  color: #e91e63;
+  border-radius: 20px;
+  padding: 5px 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* --- ANIMACIONES --- */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.juegomemoria-fade-in { animation: fadeIn 0.4s ease forwards; width: 100%; display: flex; flex-direction: column; align-items: center; height: 100%; }
+
+/* CELULARES */
+@media (max-width: 768px) {
+  .juegomemoria-wrapper { padding: 5px; height: auto; min-height: 80vh;}
+  .juegomemoria-card, .juegomemoria-cardNivel, .juegomemoria-pantallaInicio { padding: 10px; height: auto; min-height: 70vh; }
+  .juegomemoria-infoBar { flex-direction: column; gap: 5px; height: auto; padding: 5px; }
+  .juegomemoria-btn-back { width: 100%; margin-bottom: 5px; }
+  .juegomemoria-nivelesGrid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .juegomemoria-premios { justify-content: flex-start; }
+  .juegomemoria-texto-premios { display: none; }
+  .juegomemoria-grid-muy-facil { grid-template-columns: repeat(3, 1fr); }
+  .juegomemoria-grid-facil { grid-template-columns: repeat(3, 1fr); } 
+  .juegomemoria-grid-medio-bajo { grid-template-columns: repeat(3, 1fr); } 
+  .juegomemoria-grid-medio, .juegomemoria-grid-medio-alto, .juegomemoria-grid-dificil { grid-template-columns: repeat(4, 1fr); }
+  .juegomemoria-grid-muy-facil .juegomemoria-carta { width: 85px; height: 85px; font-size: 1.8rem; }
+  .juegomemoria-grid-facil .juegomemoria-carta { width: 75px; height: 75px; }
+  .juegomemoria-grid-medio-bajo .juegomemoria-carta { width: 75px; height: 75px; font-size: 1.6rem; }
+  .juegomemoria-grid-medio .juegomemoria-carta, .juegomemoria-grid-medio-alto .juegomemoria-carta { width: 60px; height: 60px; font-size: 1.5rem; }
+  .juegomemoria-grid-dificil .juegomemoria-carta { width: 55px; height: 55px; font-size: 1.2rem; }
+}

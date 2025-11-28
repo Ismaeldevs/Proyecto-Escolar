@@ -1,0 +1,234 @@
+/* Fuente gordita y redonda para el título */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Varela+Round&display=swap');
+
+/* --- ANIMACIONES --- */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes floatMascot {
+    0% { transform: translateY(-50%) translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-50%) translateY(-15px) rotate(2deg); }
+    100% { transform: translateY(-50%) translateY(0px) rotate(0deg); }
+}
+
+@keyframes floatMascotMobile {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* --- CONFIGURACIÓN DE LA PÁGINA --- */
+.juegos-page-pro {
+  font-family: 'Varela Round', sans-serif; /* Texto normal legible */
+  /* Degradado suave azul cielo (como en tu imagen) */
+  background: linear-gradient(180deg, #A1C4FD 0%, #C2E9FB 100%);
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.juegos-container-pro {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px 100px 20px;
+  position: relative;
+}
+
+/* --- CABECERA --- */
+.juegos-header-row {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 60px;
+  height: 180px;
+}
+
+.titulo-wrapper {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- EL ESTILO DEL TÍTULO (IGUAL A TU IMAGEN) --- */
+.juegos-header-row h1 {
+  font-family: 'Fredoka', sans-serif; /* Fuente especial para el título */
+  font-size: 5.5rem; /* Bien grande */
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.1;
+  
+  /* LA SOMBRA NARANJA GORDITA */
+  text-shadow: 
+    4px 4px 0px #FF9F43, 
+    8px 8px 0px rgba(255, 159, 67, 0.3);
+    
+  letter-spacing: 1px;
+  transform: rotate(-2deg); /* Un toquecito divertido */
+}
+
+/* --- MASCOTA --- */
+.juegos-mascota-pro {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 50%;
+  
+  /* Ajuste para alejarla del título grande */
+  margin-left: 300px; 
+  
+  width: 200px; 
+  height: auto;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+  animation: floatMascot 4s ease-in-out infinite;
+  z-index: 2;
+}
+
+/* --- GRID Y TARJETAS 3D --- */
+.juegos-grid-pro {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  perspective: 1000px;
+}
+
+.game-card-3d {
+  background: white;
+  border-radius: 35px;
+  padding: 15px;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 10px 0 #e0e0e0, 0 20px 20px rgba(0,0,0,0.1);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 4px solid #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-card-3d:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 0 #d1d1d1, 0 30px 40px rgba(0,0,0,0.15);
+  z-index: 10;
+}
+
+/* Imagen del juego */
+.card-image-box {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  border-radius: 25px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  border: 2px solid #f0f0f0;
+}
+
+.card-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.game-card-3d:hover .card-image-box img {
+  transform: scale(1.15) rotate(-2deg);
+}
+
+.overlay-play {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.3);
+  display: flex; justify-content: center; align-items: center;
+  color: white; font-size: 3rem; opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 2;
+}
+
+.game-card-3d:hover .overlay-play { opacity: 1; }
+
+/* Textos */
+.card-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-content h3 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.6rem;
+  color: #393939;
+  margin: 10px 0 5px 0;
+}
+
+.card-content p {
+  color: #292929;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+/* Botón Jugar */
+.btn-jugar-pro {
+  background: linear-gradient(to bottom, #4cd137, #44bd32);
+  color: white;
+  border: none;
+  padding: 15px 0;
+  width: 100%;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 5px 0 #2ecc71;
+  transition: all 0.1s;
+}
+
+.game-card-3d:hover .btn-jugar-pro {
+  background: linear-gradient(to bottom, #44bd32, #4cd137);
+  box-shadow: 0 5px 0 #27ae60, 0 10px 20px rgba(76, 209, 55, 0.4);
+}
+
+.btn-jugar-pro:active {
+  transform: translateY(5px);
+  box-shadow: 0 0 0 #2ecc71;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .juegos-header-row h1 { font-size: 4rem; }
+  .juegos-mascota-pro { width: 180px; margin-left: 250px; }
+}
+
+@media (max-width: 768px) {
+  .juegos-container-pro { padding: 40px 15px; }
+  
+  .juegos-header-row {
+    flex-direction: column;
+    height: auto;
+    margin-bottom: 40px;
+  }
+  
+  .juegos-header-row h1 { 
+    font-size: 3.5rem; 
+    transform: rotate(0deg); 
+  }
+
+  .juegos-mascota-pro {
+    position: static;
+    transform: none;
+    margin: 15px auto 0 auto;
+    width: 150px;
+    animation: floatMascotMobile 3s ease-in-out infinite;
+  }
+  
+  .juegos-grid-pro {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+}

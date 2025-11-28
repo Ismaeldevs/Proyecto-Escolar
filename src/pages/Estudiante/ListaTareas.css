@@ -1,0 +1,215 @@
+.pagina-cuaderno {
+    min-height: 100vh; 
+    width: 100%;
+    margin: 0;
+    padding-top: 40px; 
+    padding-bottom: 40px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    background-image: 
+        linear-gradient(#e1e1e1 1px, transparent 1px),
+        linear-gradient(90deg, #e1e1e1 1px, transparent 1px);
+    background-size: 25px 25px;
+    border-left: 5px solid #ff5252;
+}
+
+.contenedor-lista-tareas {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    background: transparent; 
+}
+
+.contenedor-lista-tareas::before {
+    content: "🍎"; 
+    font-size: 4rem;
+    position: absolute;
+    top: -30px;
+    left: -25px; 
+    transform: rotate(-15deg);
+    z-index: 10;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+}
+
+.contenedor-lista-tareas::after {
+    content: "✏️";
+    font-size: 4rem;
+    position: absolute;
+    top: -40px;
+    right: -10px;
+    transform: rotate(15deg);
+    z-index: 10;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+}
+
+.encabezado-alumno {
+    text-align: center;
+    margin-bottom: 40px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    border: 2px solid #e2e8f0;
+    position: relative;
+    z-index: 2;
+}
+
+.avatar-grande {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+.encabezado-alumno h1 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.encabezado-alumno p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.titulo-seccion {
+    color: #444;
+    margin-bottom: 25px;
+    font-weight: 800;
+    text-transform: uppercase;
+    background: white;
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 50px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border: 1px solid #ddd;
+}
+
+.grid-tareas-alumno {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tarjeta-tarea-alumno {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #f0f0f0;
+}
+
+.tarjeta-tarea-alumno:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.info-tarea-alumno {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.numero-tarea {
+    font-size: 0.8rem;
+    color: #64748b;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: #f1f5f9;
+    padding: 5px 10px;
+    border-radius: 6px;
+    align-self: flex-start;
+}
+
+.titulo-tarea {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #1e293b;
+}
+
+.tiempo-tarea {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.acciones-tarea {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-tarea, .btn-vivo {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    font-size: 1rem;
+    transition: filter 0.2s, transform 0.1s;
+    box-shadow: 0 4px 0 rgba(0,0,0,0.1);
+}
+
+.btn-tarea:active, .btn-vivo:active {
+    transform: translateY(3px);
+    box-shadow: none;
+}
+
+.btn-tarea:hover, .btn-vivo:hover {
+    filter: brightness(1.1);
+}
+
+.btn-vivo {
+    background-color: #ff4757; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.boton-salir {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-top: 50px;
+    background: white;
+    color: #ef4444;
+    border: 2px solid #ef4444;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 1rem;
+}
+
+.boton-salir:hover {
+    background: #ef4444;
+    color: white;
+}
+
+@media (max-width: 480px) {
+    .pagina-cuaderno {
+        border-left: none;
+        padding-top: 20px;
+    }
+    
+    .contenedor-lista-tareas::before, 
+    .contenedor-lista-tareas::after {
+        font-size: 3rem;
+    }
+
+    .acciones-tarea {
+        flex-direction: column;
+    }
+    
+    .titulo-tarea {
+        font-size: 1.2rem;
+    }
+}

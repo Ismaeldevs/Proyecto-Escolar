@@ -1,0 +1,224 @@
+.fondo-adivinanzas {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffb7b2; 
+  display: flex;
+  flex-direction: column;
+}
+
+.adivinanzas-container {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Varela Round', 'Comic Sans MS', sans-serif;
+  text-align: center;
+  flex: 1;
+}
+
+.adivinanzas-header-row {
+  position: relative;
+  margin-bottom: 50px;
+  padding: 0 20px;
+}
+
+.titulo-principal {
+  color: #5d4d8a;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-top: 0;
+  margin-bottom: 0;
+  text-shadow: 3px 3px 0px #e0e0e0;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.adivinanzas-mascota-img {
+  position: absolute;
+  top: 80;
+  transform: translateY(-50%);
+  left: 50%;
+  margin-left: 320px; 
+  width: 160px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 10px rgba(0,0,0,0.1));
+  animation: floatMascot 3s ease-in-out infinite;
+  z-index: 2;
+}
+
+@keyframes floatMascot {
+  0% { transform: translateY(-50%) translateY(0px); }
+  50% { transform: translateY(-50%) translateY(-10px); }
+  100% { transform: translateY(-50%) translateY(0px); }
+}
+
+@keyframes floatMascotMobile {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.categoria-section {
+  margin-bottom: 60px;
+}
+
+.titulo-categoria {
+  display: inline-block;
+  font-size: 1.8rem;
+  padding: 8px 30px;
+  border-radius: 50px;
+  color: white;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.titulo-categoria.verde { background-color: #88d498; }
+.titulo-categoria.rosa { background-color: #ff8fab; }
+.titulo-categoria.amarillo { background-color: #ffd93d; color: #5c4b08; }
+.titulo-categoria.celeste { background-color: #7dd3fc; }
+.titulo-categoria.morado { background-color: #c8b6ff; }
+.titulo-categoria.naranja { background-color: #ffb7b2; }
+
+.grid-adivinanzas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.tarjeta {
+  background: white;
+  border-radius: 24px;
+  padding: 30px 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 280px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 3px solid transparent;
+}
+
+.tarjeta:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.tarjeta.revelada {
+  border-color: #ffd93d; 
+}
+
+.contenido-tarjeta {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.pregunta {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.zona-accion {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-revelar {
+  border: none;
+  padding: 12px 25px;
+  border-radius: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-revelar:hover {
+  transform: scale(1.05);
+}
+
+.btn-verde { background-color: #88d498; }
+.btn-rosa { background-color: #ff8fab; }
+.btn-amarillo { background-color: #ffd93d; color: #5c4b08; }
+.btn-celeste { background-color: #7dd3fc; }
+.btn-morado { background-color: #c8b6ff; }
+.btn-naranja { background-color: #ffb7b2; }
+
+.respuesta-box {
+  background-color: #ffd93d;
+  color: #333;
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  animation: popUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-reset {
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+  font-size: 1.2rem;
+}
+
+.btn-reset:hover {
+  background: white;
+  transform: rotate(-180deg);
+}
+
+@keyframes popUp {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+  .adivinanzas-container {
+    padding: 20px 15px;
+  }
+
+  .adivinanzas-header-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    margin-bottom: 30px;
+  }
+
+  .adivinanzas-mascota-img {
+    position: static;
+    transform: none;
+    margin-left: 0;
+    margin-top: 20px;
+    width: 140px;
+    animation: floatMascotMobile 3s ease-in-out infinite;
+  }
+
+  .titulo-principal {
+    font-size: 2.5rem;
+  }
+}

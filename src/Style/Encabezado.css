@@ -1,0 +1,132 @@
+.encabezado-contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 60px;
+    position: relative;
+}
+
+
+.encmaestros {
+    background: linear-gradient(135deg, #e4a7f0 0%, #f7d5e6 100%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0.5rem 0;
+}
+
+
+.encmaestros-titulo {
+    font-family: 'Fredoka One', 'Nunito', sans-serif;
+    font-size: 3rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    transition: transform 0.3s ease;
+}
+
+.encmaestros-titulo:hover {
+    transform: translateX(-50%) scale(1.05);
+}
+
+
+.encmaestros-lapiz {
+    filter: sepia(100%) saturate(300%) hue-rotate(-20deg) brightness(1.2); 
+    font-size: 3rem; 
+}
+
+
+.encmaestros-texto {
+    background: linear-gradient(to right, #6e2dc8, #9054cd, #dc4854);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+    
+    text-shadow: 
+        1.5px 1.5px 0px rgba(255, 255, 255, 0.071), 
+        
+}
+
+
+.encabezado-nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: transparent !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+
+.encmaestros-btn-inicio {
+    color: #5d4566;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.5); 
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
+}
+
+.encmaestros-btn-inicio:hover {
+    background-color: #ffffff;
+    color: #884e9d; 
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+@media (max-width: 768px) {
+    .encabezado-contenedor {
+        height: auto;
+        min-height: 70px;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .encmaestros-titulo {
+        position: static;
+        transform: none;
+        left: auto;
+        font-size: 1.8rem;
+        white-space: normal;
+        text-align: center;
+        margin-bottom: 5px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .encmaestros-titulo:hover {
+        transform: scale(1.05);
+    }
+    
+    .encmaestros-lapiz {
+        font-size: 1.8rem; 
+    }
+
+    .encabezado-nav {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .encmaestros-btn-inicio {
+        font-size: 0.85rem;
+        padding: 0.4rem 1rem;
+    }
+}

@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&display=swap');
+
+.juegoWrapper {
+  width: 100%;
+  min-height: 600px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  background-image: url("http://googleusercontent.com/image_generation_content/8");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #f0f9ff;
+}
+
+.panelInicio, .panelProgreso, .panelJuego, .panelGano, .panelFinal {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  padding: 30px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  text-align: center;
+  width: 100%;
+  max-width: 1000px;
+  position: relative;
+  border: 4px solid #fff;
+  animation: slideUp 0.5s ease-out;
+}
+
+.panelInicio, .panelProgreso, .panelGano, .panelFinal {
+  max-width: 550px;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.panelJuego {
+  display: flex;
+  flex-direction: column;
+  min-height: 600px;
+}
+
+.juegoHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #eef2ff;
+  padding: 15px 25px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  border: 2px solid #e0e7ff;
+}
+
+.nivelTxt {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.8rem;
+  color: #4338ca;
+  letter-spacing: 1px;
+}
+
+.mensajeTxt {
+  min-height: 40px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #059669;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+.juegoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 150px;
+  position: relative;
+  flex-grow: 1;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.colTitulo {
+  font-family: 'Fredoka One', cursive;
+  font-size: 2rem;
+  color: #ec4899;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0px #fbcfe8;
+}
+
+.itemCard {
+  background: white;
+  border: 4px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 15px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 110px;
+  box-shadow: 0 6px 0 #cbd5e1;
+  position: relative;
+  z-index: 10;
+}
+
+.itemCard:hover {
+  transform: translateY(-3px);
+  border-color: #6366f1;
+  box-shadow: 0 9px 0 #a5b4fc;
+}
+
+.itemCard:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #cbd5e1;
+}
+
+.itemCard.matched {
+  background-color: #dcfce7;
+  border-color: #22c55e;
+  box-shadow: none;
+  transform: none;
+  opacity: 0.8;
+  cursor: default;
+}
+
+.colItem { pointer-events: none; text-align: center; }
+.emoji { font-size: 3.5rem; display: block; margin-bottom: 5px; filter: none; }
+.singular { font-size: 1.4rem; color: #4f46e5; font-family: 'Nunito', sans-serif; font-weight: 800; }
+.palabra { font-size: 1.8rem; color: #db2777; font-family: 'Nunito', sans-serif; font-weight: 900; pointer-events: none; }
+
+.svgLines {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  overflow: visible;
+}
+
+.linea-fija {
+  stroke: #10b981;
+  stroke-width: 8px;
+  stroke-linecap: round;
+  filter: drop-shadow(0 3px 2px rgba(0,0,0,0.2));
+}
+
+.linea-temp {
+  stroke: #f472b6;
+  stroke-width: 6px;
+  stroke-linecap: round;
+  stroke-dasharray: 10 10;
+  animation: dash 1s linear infinite;
+}
+
+@keyframes dash {
+  to { stroke-dashoffset: -20; }
+}
+
+.btnPrincipal {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+  padding: 15px 40px;
+  font-size: 1.6rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 0 #312e81;
+  width: 100%;
+  margin: 10px 0;
+  font-family: inherit;
+  transition: transform 0.1s;
+}
+
+.btnPrincipal:active { transform: translateY(4px); box-shadow: 0 2px 0 #312e81; }
+
+.btnSec {
+  background: #14b8a6;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 30px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #0f766e;
+  margin: 5px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+}
+
+.btnSec:active { transform: translateY(3px); box-shadow: 0 1px 0 #0f766e; }
+
+.inicioTitulo { font-family: 'Fredoka One', cursive; font-size: 3.5rem; color: #4f46e5; margin-bottom: 10px; text-shadow: 3px 3px 0 #c7d2fe; }
+.inicioDesc { font-size: 1.4rem; color: #475569; margin-bottom: 30px; font-family: 'Nunito', sans-serif; }
+.tituloGano { font-family: 'Fredoka One', cursive; font-size: 3.5rem; color: #059669; margin-bottom: 10px; }
+.estrellasGano { font-size: 4rem; margin: 20px 0; filter: drop-shadow(0 4px 0 rgba(0,0,0,0.1)); }
+.tituloProgreso { font-family: 'Fredoka One', cursive; font-size: 2.2rem; color: #0d9488; margin-bottom: 15px; }
+
+.gridNiveles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.cardNivelProgreso {
+  background: #f0fdfa;
+  border: 2px solid #ccfbf1;
+  border-radius: 15px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.cardNivelProgreso:active { transform: scale(0.95); }
+.cardNivelProgreso h4 { margin: 0; color: #134e4a; font-size: 1rem; font-weight: bold; }
+.estrellasNivel { font-size: 1.2rem; margin-top: 5px; }
+
+@media (max-width: 768px) {
+  .juegoGrid { 
+    gap: 50px;
+    grid-template-columns: 1fr 1fr; 
+  } 
+  .itemCard { 
+    min-height: 90px; 
+    padding: 8px; 
+    border-width: 3px; 
+  }
+}
+
+@media (max-width: 500px) {
+  .juegoWrapper {
+    align-items: flex-start;
+    padding-top: 10px;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .panelJuego {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  .juegoHeader {
+    padding: 8px;
+    margin-bottom: 10px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .nivelTxt { font-size: 1.1rem; }
+  .colTitulo { font-size: 1rem; margin-bottom: 15px; }
+
+  .juegoGrid {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0;
+  }
+
+  .juegoGrid > div {
+    width: 38%;
+  }
+
+  .itemCard {
+    margin-bottom: 15px;
+    min-height: 60px;
+    padding: 5px;
+    flex-direction: column;
+    border-width: 2px;
+  }
+
+  .emoji { font-size: 1.4rem; margin-bottom: 2px; }
+  .singular { font-size: 0.85rem; }
+  .palabra { font-size: 0.9rem; word-break: break-word; }
+
+  .svgLines { display: block; }
+}

@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.jcc-container {
+  width: 100%;
+  height: calc(100vh - 100px); 
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* FONDO PERSONALIZADO */
+  background-image: url("/images/clasificacionFondo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #fff4fb; /* Color de respaldo */
+  
+  font-family: 'Fredoka One', cursive, sans-serif;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* --- TARJETAS GENERALES --- */
+.jcc-cardNivel,
+.jcc-cardCarga {
+  width: 100%;
+  max-width: 1000px;
+  height: 100%;
+  /* Fondo blanco semi-transparente para que resalte sobre tu imagen */
+  background: rgba(255, 255, 255, 0.925);
+  border-radius: 30px;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; 
+  
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+}
+
+/* --- HEADER DEL JUEGO --- */
+.jcc-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #f0f4f8;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  height: 70px;
+}
+
+.jcc-titulo { font-size: 1.8rem; color: #ec4899; margin: 0; }
+.jcc-stats { display: flex; gap: 15px; font-size: 1.2rem; color: #6366f1; }
+
+/* --- BOTONES PEQUEÑOS --- */
+.jcc-btn-volver-mini {
+  background: #cbd5e1;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #475569;
+  transition: transform 0.1s;
+}
+.jcc-btn-volver-mini:hover { transform: scale(1.05); }
+
+.jcc-btn-sonido {
+  background: #fff;
+  border: 2px solid #ec4899;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- ÁREA DE JUEGO --- */
+.jcc-gridCategorias {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  width: 100%;
+  flex: 1;
+  padding: 10px;
+  box-sizing: border-box;
+  align-items: stretch;
+}
+
+.jcc-categoria-card {
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+  border: 3px dashed rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.jcc-categoria-card h3 {
+  margin: 5px 0;
+  font-size: 1.2rem;
+  color: #333;
+  background: rgba(255,255,255,0.9);
+  padding: 5px 15px;
+  border-radius: 15px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.jcc-categoria-items {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  gap: 5px;
+  padding: 5px;
+  background: rgba(255,255,255,0.4);
+  border-radius: 15px;
+  margin-top: 5px;
+  overflow-y: auto;
+}
+
+/* --- ITEMS EMOJI --- */
+.jcc-item-emoji {
+  font-size: 2.5rem;
+  cursor: grab;
+  user-select: none;
+  transition: transform 0.2s ease;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+}
+.jcc-item-emoji:active { cursor: grabbing; transform: scale(1.1); }
+
+/* --- ZONA DE ITEMS PENDIENTES --- */
+.jcc-itemsPendientes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px;
+  background: #fffbeb;
+  border-radius: 20px;
+  border: 3px solid #fcd34d;
+  width: 100%;
+  min-height: 80px;
+  box-sizing: border-box;
+}
+
+/* --- MENSAJE FLOTANTE --- */
+.jcc-mensaje {
+  height: 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #059669;
+  margin: 5px 0;
+}
+
+/* --- PANTALLA GANADOR / ESTRELLAS --- */
+.estrellas-container {
+  font-size: 4rem;
+  margin: 20px 0;
+  filter: drop-shadow(0 0 10px gold);
+  animation: pop 0.5s ease;
+}
+
+.jcc-btn-siguiente {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  margin: 10px;
+  box-shadow: 0 5px 0 #2e7d32;
+}
+.jcc-btn-siguiente:active { transform: translateY(4px); box-shadow: none; }
+
+.jcc-btn-volver {
+  background: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+/* --- MENU NIVELES --- */
+.jcc-nivelesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  width: 100%;
+  overflow-y: auto; /* Scroll si hay muchos niveles */
+  padding: 10px;
+}
+
+/* ESTILO BOTÓN DE NIVEL */
+.jcc-btn-nivel {
+  width: 140px;
+  height: 140px;
+  border-radius: 25px;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
+  box-shadow: 0 6px 0 #1d4ed8;
+  transition: transform 0.1s;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.jcc-btn-nivel:active { transform: translateY(5px); box-shadow: none; }
+
+.jcc-nivel-estrellas {
+  font-size: 1rem;
+  background: rgba(0,0,0,0.2);
+  padding: 4px 8px;
+  border-radius: 15px;
+  min-height: 1.5rem;
+  white-space: nowrap;
+}
+
+/* --- ANIMACIONES --- */
+@keyframes pop { 0% { transform: scale(0); } 80% { transform: scale(1.2); } 100% { transform: scale(1); } }
+
+/* --- RESPONSIVE --- */
+/* --- RESPONSIVE OPTIMIZADO PARA MÓVIL --- */
+@media (max-width: 768px) {
+  .jcc-container { 
+    padding: 0; 
+    align-items: flex-start; /* Alinea arriba para evitar problemas de altura */
+  }
+  
+  .jcc-cardNivel { 
+    padding: 10px; 
+    border-radius: 0; 
+    height: 100vh; /* Ocupa toda la pantalla del cel */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Header más pequeño */
+  .jcc-header { 
+    height: 50px; 
+    padding: 5px 10px;
+    gap: 10px;
+    margin-bottom: 5px;
+    flex-shrink: 0;
+  }
+  .jcc-titulo { font-size: 1.4rem; }
+  .jcc-stats { font-size: 1rem; }
+  .jcc-btn-volver-mini { padding: 4px 10px; font-size: 0.7rem; }
+  .jcc-btn-sonido { width: 32px; height: 32px; font-size: 1rem; }
+
+  /* GRILLA: Ahora es una columna (lista vertical) */
+  .jcc-gridCategorias { 
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+    padding: 5px;
+    flex: 1; /* Que ocupe el espacio sobrante */
+    overflow-y: auto; /* Scroll si son muchas categorías */
+  }
+  
+  /* TARJETA DE CATEGORÍA (La fila completa) */
+  .jcc-categoria-card { 
+    display: flex; 
+    flex-direction: row; /* Lado a lado */
+    align-items: center; 
+    justify-content: space-between;
+    min-height: 70px; /* Altura fija cómoda */
+    padding: 5px;
+    gap: 5px;
+    /* Aseguramos que el "target" ocupe todo */
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* TÍTULO (Izquierda) */
+  .jcc-categoria-card h3 { 
+    font-size: 0.8rem; 
+    width: 30%;       /* Ancho fijo para que no se encime */
+    margin: 0;
+    text-align: center;
+    padding: 4px;
+    white-space: nowrap;      /* Que no salte de línea */
+    overflow: hidden;
+    text-overflow: ellipsis;  /* Si es muy largo pone ... */
+    
+    /* TRUCO: Que los clicks pasen a través del título */
+    pointer-events: none; 
+  }
+  
+  /* CAJA BLANCA (Derecha - Donde caen los emojis) */
+  .jcc-categoria-items { 
+    flex: 1; /* Ocupa todo el resto del ancho */
+    width: auto;
+    min-height: 55px; 
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Emojis alineados a la derecha */
+    padding-right: 10px;
+    
+    /* TRUCO: Que los clicks pasen a través de la caja blanca hacia la tarjeta */
+    pointer-events: none; 
+  }
+  
+  /* Emojis dentro de la caja ya clasificados */
+  .jcc-categoria-items .jcc-item-emoji {
+      font-size: 1.8rem;
+      margin-left: -5px; /* Un pequeño solapamiento visual si hay muchos */
+  }
+  
+  /* ZONA DE ITEMS (Abajo) */
+  .jcc-itemsPendientes {
+    padding: 10px;
+    min-height: 90px;
+    gap: 15px;
+    flex-shrink: 0; /* No se aplasta */
+    margin-top: auto; /* Se empuja al fondo */
+  }
+  
+  /* Emojis grandes para arrastrar con el dedo */
+  .jcc-itemsPendientes .jcc-item-emoji { 
+      font-size: 2.8rem; 
+  }
+  
+  .jcc-btn-nivel { width: 90px; height: 90px; font-size: 0.9rem; }
+}

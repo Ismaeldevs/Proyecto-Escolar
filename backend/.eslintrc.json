@@ -1,0 +1,14 @@
+{
+    "env": {
+        "commonjs": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+        // Desactiva la comprobación estricta de las variables de entorno
+        "no-process-env": "off", 
+        // Desactiva la regla que a veces causa conflicto con dotenv al inicio
+        "global-require": "off" 
+    }
+}
