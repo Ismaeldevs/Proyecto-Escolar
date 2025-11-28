@@ -9,9 +9,23 @@ const apiRutas = require("./rutas/apiRutas");
 const app = express();
 const PUERTO = process.env.PORT || 4000;
 
+// Configurar orígenes permitidos para CORS
+const allowedOrigins = [
+    "http://localhost:3000", 
+    "http://localhost:5173",
+    "http://72.60.151.201",
+    "http://72.60.151.201:5173",
+    "http://72.60.151.201:4000",
+    "http://72.60.151.201:8000"
+];
+
+if (process.env.FRONTEND_URL) {
+    allowedOrigins.push(process.env.FRONTEND_URL);
+}
+
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:5173"],
+    origin: allowedOrigins,
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -27,7 +41,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:3000", "http://localhost:5173"],
+    origin: allowedOrigins,
     methods: ["GET", "POST", "PUT", "DELETE"],
   },
 });
